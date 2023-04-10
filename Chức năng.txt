@@ -1,0 +1,13 @@
+I:  Product{
+    thêm, sửa xóa , kiểm tra quyền 
+    Sản phâm tương tự 
+}
+II Category{
+    thêm, sửa xóa , kiểm tra quyền 
+    Danh mục 
+}
+III user{
+    đăng ký,
+    đăng nhập 
+}
+Chức năng tìm kiếm 
