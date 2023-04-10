@@ -6,7 +6,7 @@ const checkitem =mongoose.Schema({
     desc:String,
     categoryId:{
         type: mongoose.Schema.Types.ObjectId,
-        ref:"Category"
+        ref:"Category"  // lay tu bang category
     }
 },{timeseries:true, versionKey:false})
 

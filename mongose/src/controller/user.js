@@ -4,6 +4,8 @@ import { checkUser, singinSchema } from "../schema/user";
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 
+
+// đăng ký tài khoản
 export const signup = async (req, res) => {
     try {
         const { error } = checkUser.validate(req.body, { abortEarly: false })
@@ -11,7 +13,7 @@ export const signup = async (req, res) => {
             const errors = error.details.map((err) => err.message)
             return res.status(400).json({ message: errors })
         }
-        const userExit = await User.findOne({ email: req.body.email });
+        const userExit = await User.findOne({ email: req.body.email }); // kiem tra email da ton tai chua
         if (userExit) {
             return res.status(400).json({
                 message: "Email da ton tai"
@@ -35,6 +37,8 @@ export const signup = async (req, res) => {
         })
     }
 }
+
+// lấy tất cả tài khoản
 export const getAllUser = async (req, res) => {
     try {
         const data = await User.find()
@@ -52,6 +56,7 @@ export const getAllUser = async (req, res) => {
 }
 
 
+// đăng nhập
 export const signin = async (req, res) => {
     try {
         const { email, password } = req.body
@@ -62,13 +67,13 @@ export const signin = async (req, res) => {
                 message: errors
             })
         }
-        const user = await User.findOne({ email })
+        const user = await User.findOne({ email }) // kiem tra email da dang ky chua 
         if (!user) {
             return res.status(400).json({
                 message: "Ban chua dang ky tai khoan",
             })
         }
-        const ismatch = await bcrypt.compare(password, user.password)
+        const ismatch = await bcrypt.compare(password, user.password) // so sánh mk 
         if (!ismatch) {
             return res.status(400).json({
                 message: "Mk khong dung"

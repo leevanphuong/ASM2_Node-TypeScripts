@@ -12,7 +12,7 @@ const UpdateProduct = (props:any) => {
     reset(ResetPro)
   }, [props])
   const onhandleSubmit = (data:any) => {
-    props.onUpdate(data)
+    props.onUpdate(data) // cập nhập lại du diệu của sản phẩm 
     if (data) {
       setTimeout(() => {
         message.success("Cập nhập thành công")

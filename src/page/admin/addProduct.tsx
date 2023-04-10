@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 const AddProduct = (props:any) => {
     const naviga = useNavigate()
     const onFinish = (values: any) => {
-        props.onAdd(values);
+        props.onAdd(values); // thêm sản phẩm 
         naviga('/admin')
     }
 

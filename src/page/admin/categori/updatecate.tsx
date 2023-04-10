@@ -4,16 +4,16 @@ import {useForm} from 'react-hook-form'
 import {message  } from 'antd';
 
 
-const updatecate = (props) => {
+const updatecate = (props:any) => {
     const {id}=useParams()
     const naviga =useNavigate()
     const {register, handleSubmit, reset}= useForm()
     useEffect(()=>{
-      const resetCate = props.cate.find((item)=> String(item._id)== String(id))
+      const resetCate = props.cate.find((item:any)=> String(item._id)== String(id))
       reset(resetCate)
     },[props])
-    const submit= data=>{
-      props.onUpdate(data)
+    const submit= (data:any)=>{
+      props.onUpdate(data) // cập nhập lại phần danh muc 
       if(data){
         setTimeout(() => {
           message.success("Cập nhập thành công")

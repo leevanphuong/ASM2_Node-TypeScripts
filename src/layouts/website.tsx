@@ -14,14 +14,14 @@ const website = () => {
     var username = document.querySelector('#user')
     const login= document.querySelector('.Login')
 
-    if (userItem.user?.role == 'admin') {
-        username?.setAttribute('href', "/admin")
-        login?.remove()
+    if (userItem.user?.role == 'admin') { // nếu user.role = admin
+        username?.setAttribute('href', "/admin") // thì thêm href="/admin"
+        login?.remove() // xoa phan dang ky 
 
     }
-    if (userItem.user?.role == 'member') {
-        username?.setAttribute('href', "/")
-        login?.remove()
+    if (userItem.user?.role == 'member') {// nếu user.role = member
+        username?.setAttribute('href', "/") // thì thêm  href="/"
+        login?.remove()// xoa phan dang nhap
     }
     return (
         <div>

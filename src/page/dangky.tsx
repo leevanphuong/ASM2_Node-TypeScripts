@@ -7,7 +7,7 @@ interface Iprops{
 }
 const login = (props:Iprops) => {
     const onFinish = (values: any) => {
-        props.onAddUser(values);
+        props.onAddUser(values); // đăng ký tài khoản 
       };
       
       const onFinishFailed = (errorInfo: any) => {

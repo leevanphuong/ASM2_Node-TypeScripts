@@ -8,28 +8,26 @@ const getalluser = ()=>{
 const adduser =(userItem: Iuser)=>{
     return User.post('/signup', userItem)
     .then(()=>{
-        message.success("Đăng ký thành công")
+        message.success("Đăng ký thành công") // neu dang ky thanh cong thi hiện message 
     })
     .catch((error) =>{
-        if(error.response && error.response.status === 400){
+        if(error.response && error.response.status === 400){ // new Response co loi thi sẽ hiện thong báo lỗi 
             const errorMessage = error.response.data.message;
-            alert(errorMessage)
+            message.error(errorMessage) // trả về lỗi 
         }else{
-            console.log("lỗi không xác định")
+            message.error("lỗi không xác định")
         }
     })
 }
-// const getoneUser=(id: Number|string)=>{
-//     return User.get('/signup/'+id)
-// }
+
 const login =(useritem: any)=>{
     return User.post('/signin', useritem)
     .catch((error) =>{
-        if(error.response && error.response.status === 400){
-            const errorMessage = error.response.data.message;
-            alert(errorMessage)
+        if(error.response && error.response.status === 400){ // new Response co loi thi sẽ hiện thong báo lỗi 
+            const errorMessage = error.response.data.message; // trả về lỗi 
+            message.error(errorMessage)
         }else{
-            console.log("lỗi không xác định")
+            message.error("lỗi không xác định")
         }
     })
 }

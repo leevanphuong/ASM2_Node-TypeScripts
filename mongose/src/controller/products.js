@@ -9,6 +9,7 @@ const checkitem = Joi.object({
 
 })
 
+// lấy tất cả san phẩm
 export const getAll= async(req,res)=>{
     try {
         const data = await Product.find()
@@ -24,6 +25,7 @@ export const getAll= async(req,res)=>{
         })
     }
 }
+// lấy 1 sản phẩm
 export const getOne = async (req,res)=>{
     try {
         const data = await Product.findById({_id: req.params.id}).populate({
@@ -42,6 +44,7 @@ export const getOne = async (req,res)=>{
         })
     }
 }
+// thêm 1 san phẩm
 export const Additem = async (req,res)=>{
     try {
         const body = req.body
@@ -66,6 +69,7 @@ export const Additem = async (req,res)=>{
         })
     }
 }
+// xóa 1 sản phẩm
 export const removeitem= async (req,res)=>{
     try {
         const data = await Product.findByIdAndDelete(req.params.id)
@@ -83,6 +87,8 @@ export const removeitem= async (req,res)=>{
         })
     }
 }
+
+// cập nhập sản phẩm
 export const update= async (req,res)=>{
     try {
         const id= req.params.id

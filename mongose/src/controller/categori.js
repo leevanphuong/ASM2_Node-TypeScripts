@@ -4,6 +4,7 @@ import Product from "../model/product";
 const cateSchema= Joi.object({
     name: Joi.string().required()
 });
+// lấy 1 danh muc 
 export const getOne = async (req,res)=>{
     try {
         const cate = await Categories.findById(req.params.id).populate("products")
@@ -20,6 +21,7 @@ export const getOne = async (req,res)=>{
         })
     }
 }
+// thêm danh muc
 export const addCate = async (req,res)=>{
     try {
         const body = req.body
@@ -46,6 +48,7 @@ export const addCate = async (req,res)=>{
         })
     }
 }
+// lấy tất cả danh muc
 export const getAll =async (req,res)=>{
     try {
         const data = await Categories.find()
@@ -61,6 +64,8 @@ export const getAll =async (req,res)=>{
         })
     }
 }
+
+// xóa danh muc
 export const remove = async (req,res)=>{
     try {
         const data = await Categories.findByIdAndDelete(req.params.id)
@@ -79,6 +84,7 @@ export const remove = async (req,res)=>{
         })
     }
 }
+// cập nhập danh muc
 export const updatecate = async (req,res)=>{
     try {
         const body = req.body

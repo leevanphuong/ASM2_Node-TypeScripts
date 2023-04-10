@@ -9,12 +9,12 @@ interface Iprops {
 const homePage = (props: Iprops) => {
   const [data, setdata] = useState<Iproduct[]>([])
   useEffect(() => {
-    setdata(props.product)
+    setdata(props.product)  // lấy tất cả sản phẩm 
   }, [props])
 
   const [cate, setcate] = useState([])
   useEffect(() => {
-    setcate(props.cate)
+    setcate(props.cate) // lấy tất cả danh muc
   }, [props])
   return (
     <div style={{ marginTop: 20 }} className='container'>

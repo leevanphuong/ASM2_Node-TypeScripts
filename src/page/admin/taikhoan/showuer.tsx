@@ -2,7 +2,7 @@ import { Button, Space, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { useNavigate } from 'react-router-dom';
 
-const Showuer = (props) => {
+const Showuer = (props:any) => {
     interface DataType {
         key: string;
         name: string;
@@ -32,7 +32,7 @@ const Showuer = (props) => {
             key: 'role',
         }
     ];
-    const data = props.user.map(item => {
+    const data = props.user.map((item:any) => { // lây tất cả tài khoản 
         return {
             key: item._id,
             ...item

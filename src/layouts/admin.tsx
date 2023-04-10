@@ -15,13 +15,13 @@ import { message } from 'antd';
 const admin = () => {
     const naviga = useNavigate();
     const [collapsed, setCollapsed] = useState(false);
-    const toggleCollapsed = () => {
+    const toggleCollapsed = () => { // hiện nav
         setCollapsed(!collapsed);
     };
     let userItem = (localStorage.getItem('user')) ? JSON.parse(localStorage.getItem('user')!) : false
-    if (userItem.user?.role == 'member' || userItem == false) {
+    if (userItem.user?.role == 'member' || userItem == false) { // kiểm tra xem user.role có phải admin không 
         naviga('/')
-        message.error("Bạn không có quyền try cập vào trang quản trị")
+        message.error("Bạn không có quyền try cập vào trang quản trị") // nếu không phải admin thì hiện lỗi và trả về trang homepage
     }
     type MenuItem = Required<MenuProps>['items'][number];
     function getItem(
@@ -61,7 +61,6 @@ const admin = () => {
                         ]}
                         onClick={({ key }) => {
                             if (key === 'Tài Khoản') {
-
                             }
                             else {
                                 naviga(key)

@@ -16,18 +16,18 @@ const categorydetails = (props:Iprops) => {
   const [categorys, setCategorys] = useState<Icate>()
 
   useEffect(() => {
-    setData(props.product)
+    setData(props.product) // lấy ra tất cả danh sach sản phẩm 
   }, [props])
 
   useEffect(() => {
-    const newCate = props.cate.find((item: Icate) => item._id === id)
+    const newCate = props.cate.find((item: Icate) => item._id === id)   // tim kiem 1 danh muc bằng id 
     setCategorys(newCate) 
   }, [props])
 
   useEffect(() => {
     if (categorys) {
-      const filteredData = data.filter((item: Iproduct) => item.categoryId === categorys._id)
-      setListCate(filteredData)
+      const filteredData = data.filter((item: Iproduct) => item.categoryId === categorys._id) // so sanh nếu id của sản phẩm === id của danh muc 
+      setListCate(filteredData) // lưu trư tất cả sản phẩm có điều kiện trên sẽ  
     }
   }, [data, categorys, id])
 

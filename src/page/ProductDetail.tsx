@@ -14,19 +14,19 @@ const ProductDetail = (props:Iprops) => {
   const [listCate, setListCate] = useState<Iproduct[]>([])
   
   useEffect(() => {
-    setData(props.product)
+    setData(props.product) // lấy tất cả sản phẩm 
   }, [props])
 
   useEffect(() => {
-   const detailproduct=props.product.find((item)=>item._id==id)
+   const detailproduct=props.product.find((item)=>item._id==id) // lấy 1 sản phâm theo id
    setdetails(detailproduct)
    console.log(details)
   }, [props])
 
   useEffect(()=>{
     if (details) {
-      const filteredData = data.filter((item: Iproduct) => item.categoryId === details.categoryId)
-      setListCate(filteredData)
+      const filteredData = data.filter((item: Iproduct) => item.categoryId === details.categoryId) // kiểm tra xem id của sản phẩm này có === id sản phẩm khác không
+      setListCate(filteredData) // lưu trữ tất cả các sản phẩm có đủ điều kiện trên 
     }
   }, [data, details, id])
   return (

@@ -1,4 +1,4 @@
-import { Button, Form, Input, InputNumber} from 'antd'
+import { Button, Form, Input} from 'antd'
 import { useNavigate } from 'react-router-dom'
 interface Iprops{
   onAdd:Function
@@ -6,8 +6,8 @@ interface Iprops{
 const AddCategory = (props:Iprops) => {
     const naviga = useNavigate()
     const onFinish = (values: any) => {
-        props.onAdd(values);
-        naviga('/admin')
+        props.onAdd(values); // push dữ liệu 
+        naviga('/admin/danhmuc')
     }
 
     const onFinishFailed = (errorInfo: any) => {

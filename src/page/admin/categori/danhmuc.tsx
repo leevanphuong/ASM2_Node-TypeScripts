@@ -3,20 +3,20 @@ import { Button, Space, Table} from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { useNavigate } from 'react-router-dom';
 
-const Danhmuc = (props) => {
+const Danhmuc = (props:any) => {
     const naviga= useNavigate()
     interface DataType {
         key: string;
         name: string;
     }
     const delelecate =(id:Number|String)=>{
-        const check = confirm("Bạn có muốn xóa sản phẩm")
+        const check = confirm("Bạn có muốn xóa sản phẩm") // xoa danh muc
         if(check){
             props.onRemove(id )
             naviga('/admin/danhmuc')
         }
         if(check==true){
-            alert("Xóa sản phẩm thành công")
+            alert("Xóa danh muc thành công")
         }
     }
     const columns: ColumnsType<DataType> = [
@@ -38,7 +38,7 @@ const Danhmuc = (props) => {
             ),
         },
     ];
-    const data = props.cate.map((item)=>{
+    const data = props.cate.map((item:any)=>{ // lay ra tat cả các danh mục
         return {
             key: item._id,
             ...item

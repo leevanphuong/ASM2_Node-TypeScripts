@@ -7,10 +7,10 @@ export const getOneCate=(id: any)=>{
     return Cate.get('/categori/'+id)
 }
 export const removeCate =(id: number|string)=>{
-    const {accessToken}= JSON.parse(localStorage.getItem('user')!)
+    const {accessToken}= JSON.parse(localStorage.getItem('user')!) // neu co accessToken thì cho thực hiện quyền 
     return Cate.delete('/categori/'+id,{
         headers:{
-            Authorization: `Bearer ${accessToken}`
+            Authorization: `Bearer ${accessToken}` 
         },
         
     })
